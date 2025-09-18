@@ -116,9 +116,9 @@ Generate a token for scans:
 ## 5️⃣ Health Check via API
 
 ```bash
-curl http://localhost:9000/api/system/health
+curl -u admin http://localhost:9000/api/system/health
 ```
-
+here admin user password will be asked provide password which is set into step 4
 Should return:
 
 ```json
