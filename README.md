@@ -138,9 +138,10 @@ sudo apt install openjdk-17-jre -y
 Download and add Sonar Scanner to PATH:
 
 ```bash
+sudo apt install unzip
 wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006.zip
-unzip sonar-scanner-5.0.1.zip
-export PATH=$PATH:$PWD/sonar-scanner-5.0.1/bin
+unzip sonar-scanner-cli-5.0.1.3006.zip
+export PATH=$PATH:$PWD/sonar-scanner-cli-5.0.1.3006.zip/bin
 ```
 
 Create a sample project:
