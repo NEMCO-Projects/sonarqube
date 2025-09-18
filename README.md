@@ -157,7 +157,7 @@ sonar-scanner \
   -Dsonar.projectKey=sample \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=<TOKEN>
+  -Dsonar.login=squ_f95660038a9a946a924f864171e54b5b43830508
 ```
 
 When the scan completes, refresh the SonarQube UI to see the analysis.
