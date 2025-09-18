@@ -142,13 +142,15 @@ sudo apt install unzip
 wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006.zip
 unzip sonar-scanner-cli-5.0.1.3006.zip
 export PATH=$PATH:$PWD/sonar-scanner-cli-5.0.1.3006.zip/bin
+source ~/.bashrc
 ```
 
-Create a sample project:
+Clone Spring Boot Java Web App project:
 
 ```bash
-mkdir sample-project && cd sample-project
-echo "print('Hello SonarQube')" > hello.py
+git clone https://github.com/spring-projects/spring-petclinic.git
+
+cd spring-petclinic
 ```
 
 Run the scanner (replace `<TOKEN>` with your actual token, **no angle brackets**):
@@ -158,6 +160,7 @@ sonar-scanner \
   -Dsonar.projectKey=sample \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.java.binaries=target/classes \  
   -Dsonar.login=squ_f95660038a9a946a924f864171e54b5b43830508
 ```
 
