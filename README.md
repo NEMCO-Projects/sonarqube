@@ -176,6 +176,7 @@ sonar-scanner \
   -Dsonar.sources=src \
   -Dsonar.exclusions=**/*.java \
   -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.license.check=true \
   -Dsonar.login=<your-token-here>
 ```
 
