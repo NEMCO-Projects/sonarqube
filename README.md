@@ -152,16 +152,31 @@ git clone https://github.com/spring-projects/spring-petclinic.git
 
 cd spring-petclinic
 ```
-
+open sonarqube container in bash
+```bash
+ docker exec -it sonarqube bash
+ cd /opt/sonarqube/extensions/plugins/
+```
+download sonarqube licensecheck plugin
+```bash
+wget https://github.com/porscheinformatik/sonarqube-licensecheck/releases/download/v6.0.1/sonarqube-licensecheck-plugin-6.0.1.jar
+exit
+```
+go to the path where you created docker-compose.yml to restart sonarqube container
+```bash
+docker compose restart sonarqube
+```
 Run the scanner (replace `<TOKEN>` with your actual token, **no angle brackets**):
 
 ```bash
 sonar-scanner \
-  -Dsonar.projectKey=sample \
-  -Dsonar.sources=. \
+  -Dsonar.projectKey=petclinic \
+  -Dsonar.projectName="PetClinic" \
+  -Dsonar.projectVersion=1.0 \
+  -Dsonar.sources=src \
+  -Dsonar.exclusions=**/*.java \
   -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.java.binaries=target/classes \  
-  -Dsonar.login=squ_f95660038a9a946a924f864171e54b5b43830508
+  -Dsonar.login=<your-token-here>
 ```
 
 When the scan completes, refresh the SonarQube UI to see the analysis.
