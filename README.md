@@ -166,6 +166,43 @@ go to the path where you created docker-compose.yml to restart sonarqube contain
 ```bash
 docker compose restart sonarqube
 ```
+
+edit your pom.xml and add below code between <plugins> .................................</plugins>
+
+```bash
+    <!-- SonarQube Maven Plugin -->
+    <plugin>
+      <groupId>org.sonarsource</groupId>
+      <artifactId>sonar-maven-plugin</artifactId>
+      <version>3.9.0.2155</version>
+      <executions>
+        <execution>
+          <goals>
+            <goal>sonar</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+ <!-- OWASP Dependency-Check Plugin -->
+    <plugin>
+      <groupId>org.owasp</groupId>
+      <artifactId>dependency-check-maven</artifactId>
+      <version>6.5.0</version>
+      <executions>
+        <execution>
+          <goals>
+            <goal>check</goal> <!-- Runs the dependency check -->
+          </goals>
+          <configuration>
+            <outputDirectory>${project.build.directory}/dependency-check-report</outputDirectory>
+            <format>XML</format> <!-- Generate the XML report for use in SonarQube -->
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
+```
+
+
 Run the scanner (replace `<TOKEN>` with your actual token, **no angle brackets**):
 
 ```bash
